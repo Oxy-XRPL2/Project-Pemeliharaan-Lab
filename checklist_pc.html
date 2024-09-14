@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checklist PC</title>
+        <link rel="stylesheet" href="./assets/css/cp_style.css">
+        <link rel="stylesheet" href="./assets/css/sidebar.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./assets/js/sweetalert_config.js" defer></script>
+    </head>
+    
+<body>
+    <!-- Flexbox Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Pemeliharaan Lab</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="checklist_lab.html">Checklist Lab</a></li>
+                <li><a href="checklist_pc.html" class="active">Checklist PC</a></li>
+            </ul>
+        </div>
+
+        <!-- Konten Utama -->
+        <div class="main-content">
+            <h1>Checklist PC</h1>
+            <form onsubmit="submitForm(event)">
+                <!-- Dropdown Nomor Lab -->
+                <div class="input-field">
+                    <label for="nomor_lab">Nomor Lab</label>
+                    <select id="nomor_lab" name="nomor_lab" required>
+                        <option value="" disabled selected>Pilih Nomor Lab</option>
+                        <option value="Lab 1">Lab 1</option>
+                        <option value="Lab 2">Lab 2</option>
+                        <option value="Lab 3">Lab 3</option>
+                        <option value="Lab 4">Lab 4</option>
+                        <!-- Tambahkan pilihan lab sesuai kebutuhan -->
+                    </select>
+                </div>
+
+                <!-- Input Nama Petugas -->
+                <div class="input-field">
+                    <label for="petugas1">Nama Petugas 1</label>
+                    <input type="text" id="petugas1" name="petugas1" required>
+                </div>
+                <div class="input-field">
+                    <label for="petugas2">Nama Petugas 2</label>
+                    <input type="text" id="petugas2" name="petugas2">
+                </div>
+                <div class="input-field">
+                    <label for="petugas3">Nama Petugas 3</label>
+                    <input type="text" id="petugas3" name="petugas3">
+                </div>
+
+                <!-- Input Tanggal Pengecekan -->
+                <div class="input-field">
+                    <label for="tanggal">Tanggal Pengecekan</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+
+                <!-- Dropdown Nomor PC -->
+                <div class="input-field">
+                    <label for="nomor_pc">Nomor PC</label>
+                    <select id="nomor_pc" name="nomor_pc" required>
+                        <option value="" disabled selected>Pilih Nomor PC</option>
+                        <script>
+                            for (let i = 1; i <= 36; i++) {
+                                document.write(`<option value="${i}">PC ${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+
+                <!-- Checklist Barang -->
+                <div class="checklist">
+                    <label><strong>Checklist Item:</strong></label>
+                    <div class="checklist-grid">
+                        <label for="monitor">
+                            <input type="checkbox" id="monitor" name="item[]" value="monitor"> Monitor
+                        </label>
+                        <label for="cpu">
+                            <input type="checkbox" id="cpu" name="item[]" value="cpu"> CPU
+                        </label>
+                        <label for="keyboard">
+                            <input type="checkbox" id="keyboard" name="item[]" value="keyboard"> Keyboard
+                        </label>
+                        <label for="mouse">
+                            <input type="checkbox" id="mouse" name="item[]" value="mouse"> Mouse
+                        </label>
+                        <label for="kabel">
+                            <input type="checkbox" id="kabel" name="item[]" value="kabel"> Kabel Set
+                        </label>
+                        <label for="win">
+                            <input type="checkbox" id="win" name="item[]" value="win"> Software Win
+                        </label>
+                        <label for="software_lain">
+                            <input type="checkbox" id="software_lain" name="item[]" value="software_lain"> Software Lain
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Input Keterangan -->
+                <div class="input-field">
+                    <label for="keterangan">Keterangan</label>
+                    <textarea id="keterangan" name="keterangan" rows="4" placeholder="Tuliskan keterangan jika ada..."></textarea>
+                </div>
+
+                <!-- Tombol Submit -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
