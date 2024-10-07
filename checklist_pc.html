@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="./assets/css/cp_style.css">
         <link rel="stylesheet" href="./assets/css/sidebar.css">
         <link rel="stylesheet" href="./assets/css/responsive.css">
+        <!-- SweetAlert2 CDN -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="./assets/js/sweetalert_config.js" defer></script>
     </head>
     
 <body>
@@ -27,7 +27,8 @@
         <!-- Konten Utama -->
         <div class="main-content">
             <h1>Checklist PC</h1>
-            <form onsubmit="submitForm(event)">
+            <!-- Form with onsubmit handler -->
+            <form id="checklistForm">
                 <!-- Dropdown Nomor Lab -->
                 <div class="input-field">
                     <label for="nomor_lab">Nomor Lab</label>
@@ -37,7 +38,6 @@
                         <option value="Lab 2">Lab 2</option>
                         <option value="Lab 3">Lab 3</option>
                         <option value="Lab 4">Lab 4</option>
-                        <!-- Tambahkan pilihan lab sesuai kebutuhan -->
                     </select>
                 </div>
 
@@ -113,5 +113,50 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Tangani submit form menggunakan fetch API
+        document.getElementById('checklistForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah halaman reload
+            
+            const formData = new FormData(this); // Mengambil data dari form
+
+            // Kirim data form ke PHP menggunakan fetch
+            fetch('save_checklist_pc.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json()) // Parsing response ke JSON
+            .then(data => {
+                // Tampilkan notifikasi SweetAlert2 berdasarkan status
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil',
+                        text: data.message,
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        // Reset form jika berhasil
+                        document.getElementById('checklistForm').reset();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: data.message,
+                        confirmButtonText: 'OK'
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Kesalahan Server',
+                    text: 'Terjadi kesalahan pada server: ' + error,
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

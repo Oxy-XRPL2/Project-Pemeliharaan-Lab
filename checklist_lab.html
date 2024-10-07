@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="./assets/css/cl_style.css">
     <link rel="stylesheet" href="./assets/css/sidebar.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    
+    <!-- Tambahkan SweetAlert dan jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- Flexbox Container -->
@@ -26,7 +30,7 @@
             <h1>Checklist Laboratorium Komputer</h1>
 
             <!-- Form Identitas Lab -->
-            <form action="save_checklist_lab.php" method="post">
+            <form id="checklist-form" method="post">
                 <table class="info-lab">
                     <tr>
                         <td>LAB</td>
@@ -128,5 +132,39 @@
             </form>
         </div>
     </div>
+
+    <!-- Tambahkan script jQuery untuk handle submit form -->
+    <script>
+    $(document).ready(function() {
+        $('#checklist-form').on('submit', function(e) {
+            e.preventDefault(); // Mencegah form dikirim secara tradisional
+
+            // Kirim data menggunakan AJAX
+            $.ajax({
+                url: 'save_checklist_lab.php',
+                type: 'POST',
+                data: $(this).serialize(), // Mengambil semua data form
+                success: function(response) {
+                    // Tampilkan SweetAlert berdasarkan hasil
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: 'Data checklist lab berhasil disimpan.',
+                        showConfirmButton: true
+                    });
+                },
+                error: function(xhr, status, error) {
+                    // Jika ada kesalahan, tampilkan SweetAlert error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Terjadi kesalahan saat menyimpan data.',
+                        showConfirmButton: true
+                    });
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
