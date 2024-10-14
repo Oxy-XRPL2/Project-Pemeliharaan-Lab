@@ -3,32 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pemeliharaan Lab</title>
-    <!-- Link ke file CSS eksternal -->
+    <title>Sistem Pemeliharaan Lab</title>
     <link rel="stylesheet" href="./assets/css/sidebar.css">
     <link rel="stylesheet" href="./assets/css/idx_style.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- Flexbox Container -->
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
-            <h2>Pemeliharaan Lab</h2>
+            <h2>Beranda</h2>
             <ul>
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="index.html">Beranda</a></li>
                 <li><a href="checklist_lab.html">Checklist Lab</a></li>
                 <li><a href="checklist_pc.html">Checklist PC</a></li>
+                <li><a href="report.html">Laporan</a></li>
             </ul>
         </div>
-
-        <!-- Konten Utama -->
+        
         <div class="main-content">
-            <h1>Selamat Datang di Form Pemeliharaan Lab</h1>
-            <p>Halaman ini masih dalam tahap pengembangan</p>
-            <p>Stay tuned!</p>
-            <p>Test</p>
+            <header>
+                <h1><i>Sistem Pemeliharaan Lab</i></h1>
+                <p class="tagline">SMK Negeri 10 Semarang</p>
+            </header>
+
+            <section class="description">
+                <h2>Tentang Sistem Kami</h2>
+                <p>Sistem Pemeliharaan Lab kami dirancang khusus untuk membantu petugas dan teknisi dalam merawat dan memelihara peralatan di laboratorium komputer sekolah. Dengan menggunakan sistem ini, Anda dapat:</p>
+                <ul>
+                    <li>Melacak kondisi setiap komputer dan hardware lainnya di lab</li>
+                    <li>Menjadwalkan dan mencatat pemeliharaan rutin</li>
+                    <li>Menghasilkan laporan pemeliharaan untuk keperluan administrasi</li>
+                    <li>Mengelola inventaris peralatan lab dengan efisien</li>
+                </ul>
+                <p>Dengan memanfaatkan sistem ini, kita dapat memastikan bahwa semua peralatan di lab komputer selalu dalam kondisi optimal, mendukung proses pembelajaran yang lancar dan efektif bagi siswa-siswi SMK Negeri 10 Semarang.</p>
+            </section>
+
+            <section class="features">
+                <h2>Fitur Utama</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="material-icons feature-icon">checklist_rtl</span>
+                        <h3>Checklist Interaktif</h3>
+                        <p>Checklist digital untuk pemeriksaan lab dan perangkat yang efisien</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons feature-icon">monitor</span>
+                        <h3>Pelacakan Real-time</h3>
+                        <p>Monitor status pemeliharaan setiap perangkat secara langsung</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons feature-icon">assessment</span>
+                        <h3>Laporan Komprehensif</h3>
+                        <p>Generasi otomatis laporan detail untuk analisis mendalam</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h2>Mulai Optimalkan Pemeliharaan Lab Anda</h2>
+                <p>Tingkatkan efisiensi dan akurasi proses pemeliharaan lab Anda hari ini.</p>
+                <a href="checklist_lab.html" class="cta-button">
+                    <span class="material-icons">arrow_forward</span>
+                    Mulai Sekarang
+                </a>
+            </section>
+
+            <footer>
+                <p>&copy; 2024 Sistem Pemeliharaan Lab by Sirius Group.</p>
+            </footer>
         </div>
     </div>
 </body>

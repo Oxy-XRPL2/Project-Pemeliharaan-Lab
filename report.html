@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemeliharaan Lab</title>
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
+    <link rel="stylesheet" href="./assets/css/report_style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Pemeliharaan Lab</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="checklist_lab.html">Checklist Lab</a></li>
+                <li><a href="checklist_pc.html">Checklist PC</a></li>
+                <li class="active"><a href="report.html">Laporan</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <header>
+                <h1>Laporan Pemeliharaan Lab</h1>
+            </header>
+
+            <section class="report-filters">
+                <label for="lab-filter">Filter Lab:</label>
+                <select id="lab-filter">
+                    <option value="">Semua Lab</option>
+                </select>
+                
+                <label for="date-filter">Filter Tanggal:</label>
+                <input type="date" id="date-filter">
+                
+                <button id="apply-filters">Terapkan Filter</button>
+            </section>
+
+            <section class="report-table">
+                <table id="report-data">
+                    <thead>
+                        <tr>
+                            <th>LAB</th>
+                            <th>Tanggal</th>
+                            <th>Petugas</th>
+                            <th>Komputer (Baik/Rusak)</th>
+                            <th>Monitor (Baik/Rusak)</th>
+                            <th>CPU (Baik/Rusak)</th>
+                            <th>Keyboard (Baik/Rusak)</th>
+                            <th>Mouse (Baik/Rusak)</th>
+                            <th>Kabel (Baik/Rusak)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script src="./assets/js/report.js"></script>
+</body>
+</html>
